@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="Chess.View.GameBoardColumnBorder"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Chess.View"
+             xmlns:converter="clr-namespace:Chess.Converter"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <!-- ColumnAsChar Converter Begin -->
+        <converter:ColumnNumberAsCharConverter x:Key="ColumnNumberAsCharConverter"></converter:ColumnNumberAsCharConverter>
+        <!-- ColumnAsChar Converter End -->
+    </UserControl.Resources>
+    <!-- Display Column Border Begin -->
+    <Grid Height="40" Background="Black">
+        <ItemsControl ItemsSource="{Binding Path=GameBoard, Converter={StaticResource ColumnNumberAsCharConverter}}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="1" Columns="{Binding Path=GameBoard.Column}"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <!-- Display Column Border with the letters Begin -->
+                    <Label Content="{Binding}" FontSize="15" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                    <!-- Display Column Border with the letters End -->
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+    <!-- Display Column Border End -->
+</UserControl>

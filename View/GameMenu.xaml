@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="Chess.View.GameMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Chess.View"
+             xmlns:viewModel="clr-namespace:Chess.ViewModel"
+             xmlns:converter="clr-namespace:Chess.Converter"
+             xmlns:command="clr-namespace:Chess.Command"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <!-- Rounded Button Style Begin -->
+        <Style TargetType="Button" x:Key="RoundButton">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
+            </Style.Resources>
+        </Style>
+        <!-- Rounded Button Style End -->
+    </UserControl.Resources>
+
+    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="170">
+        <!-- Status Header Begin -->
+        <Border Margin="0 20" BorderThickness="3" BorderBrush="Black" CornerRadius="3">
+            <Label VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 10" FontSize="20" FontWeight="Bold">
+                <Label.Content>
+                    Chess Game
+                </Label.Content>
+            </Label>
+        </Border>
+        <!-- Status Header End -->
+
+        <!-- GameMenu Buttons Begin -->
+        <Button Style = "{StaticResource RoundButton}" Command = "{Binding NewGameCommand}" Margin="0 7" Padding="5" BorderThickness="2" Background="White" Foreground="Black" FontWeight="Bold" FontSize="15" Content="New Game"/>
+
+        <Button Style = "{StaticResource RoundButton}" Click="OnSaveGameButton_Click" Margin="0 7" Padding="5" BorderThickness="2" Background="White" FontWeight="Bold" FontSize="15" Content="Save Game"/>
+
+        <Button Style = "{StaticResource RoundButton}" Click="OnLoadGameButton_Click" Command="{Binding GameStateChangedCommand}" Margin="0 7" Padding="5" BorderThickness="2" Background="White" FontWeight="Bold" FontSize="15" Content="Load Game"/>
+
+        <Button Style = "{StaticResource RoundButton}" Command = "{Binding ExitGameCommand}" Margin="0 40" Padding="5" BorderThickness="2" Background="White" FontWeight="Bold" FontSize="15" Content="Exit Game"/>
+        <!-- GameMenu Buttons End -->
+
+        <!-- Turns ListView Begin-->
+        <ListView HorizontalAlignment="Center" x:Name="ChessTurnsView" Width="170" Height="260" Margin="0 5" BorderThickness="2" FontWeight="Bold" FontSize="15" ItemsSource="{Binding GameHistory}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="140">
+                        <GridViewColumn.Header>
+                            Turns
+                        </GridViewColumn.Header>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Name}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <!-- Turns ListView End-->
+        
+        <!-- Load Turn Button Begin -->
+        <Button Style = "{StaticResource RoundButton}" Command = "{Binding LoadTurnCommand}" CommandParameter = "{Binding ElementName = ChessTurnsView, Path = SelectedIndex}" Margin="0 10" Padding="5" BorderThickness="2" Background="White" FontWeight="Bold" FontSize="15" Content="Load Turn"/>
+        <!-- Load Turn Button End -->
+
+    </StackPanel>
+</UserControl>

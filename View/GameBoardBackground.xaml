@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Chess.View.GameBoardBackground"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Chess.View"
+             xmlns:converter="clr-namespace:Chess.Converter"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converter:GameBoardBackgroundColorConverter x:Key="BackgroundColorConverter"></converter:GameBoardBackgroundColorConverter>
+        <converter:CellSizeConverter x:Key="CellSizeConverter"></converter:CellSizeConverter>
+    </UserControl.Resources>
+
+    <UniformGrid HorizontalAlignment="Center">
+        <!-- The background color of the cells Begin -->
+        <ItemsControl x:Name="backgroundGrid" ItemsSource="{Binding Path=GameBoard, Converter={StaticResource BackgroundColorConverter}}" BorderThickness="3" BorderBrush="White">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <!-- Binding the gameboard size Begin -->
+                    <UniformGrid Rows="{Binding Path=GameBoard.Row}" Columns="{Binding Path=GameBoard.Column}"/>
+                    <!-- Binding the gameboard size End -->
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <!-- Specified the background color of the cells Begin -->
+                    <Label x:Name="backgroundLabel" Background="{Binding}" Opacity="0.75" Height="{Binding ElementName=backgroundGrid, Path=DataContext.GameBoard, Converter={StaticResource CellSizeConverter}}" Width="{Binding ElementName=backgroundLabel, Path=Height}"/>
+                    <!-- Specified the background color of the cells End -->
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <!-- The background color of the cells End -->
+    </UniformGrid>
+</UserControl>

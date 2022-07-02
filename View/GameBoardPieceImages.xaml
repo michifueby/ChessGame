@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="Chess.View.GameBoardPieceImages"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Chess.View"
+             xmlns:viewModel="clr-namespace:Chess.ViewModel"
+             xmlns:converter="clr-namespace:Chess.Converter"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converter:GamePieceImageConverter x:Key="GamePieceImageConverter"></converter:GamePieceImageConverter>
+        <converter:CellSizeConverter x:Key="CellSizeConverter"></converter:CellSizeConverter>
+    </UserControl.Resources>
+
+    <Grid >
+        <ItemsControl x:Name="gamePiecesPosition" ItemsSource="{Binding Path = GameBoard, Converter={StaticResource GamePieceImageConverter}, UpdateSourceTrigger = PropertyChanged}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="{Binding Path=GameBoard.Row}" Columns="{Binding Path=GameBoard.Column}"></UniformGrid>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Label BorderBrush="White" BorderThickness="2">
+                        <Image x:Name="gamePiecesImages" Source="{Binding}" Height="{Binding ElementName = gamePiecesPosition, Path = DataContext.GameBoard, Converter={StaticResource CellSizeConverter}}"/>
+                    </Label>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>

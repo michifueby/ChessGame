@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{29B26868-B1CF-4A21-8D6C-7711D8D514E6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Chess</RootNamespace>
+    <AssemblyName>Chess</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>chessico.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="View\BeatenPieces.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GameBoardBackground.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GameBoardButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GameBoardColumnBorder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GameBoardPieceImages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GameBoardPossibleMoves.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GameBoardRowBorder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GameMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converter\BeatenPiecesImageConverter.cs" />
+    <Compile Include="Converter\ColumnNumberAsCharConverter.cs" />
+    <Compile Include="Converter\CellSizeConverter.cs" />
+    <Compile Include="Command\Command.cs" />
+    <Compile Include="Converter\GameBoardWidthConverter.cs" />
+    <Compile Include="Converter\GameBoardHeightConverter.cs" />
+    <Compile Include="Converter\GameBoardBackgroundColorConverter.cs" />
+    <Compile Include="Converter\GamePieceImageConverter.cs" />
+    <Compile Include="Converter\GameBoardConverter.cs" />
+    <Compile Include="Converter\GameBoardStatusMessageConverter.cs" />
+    <Compile Include="Model\GameWinnerCalculator.cs" />
+    <Compile Include="Model\GameBoardCreator.cs" />
+    <Compile Include="Model\IMoveable.cs" />
+    <Compile Include="Model\Coordinates.cs" />
+    <Compile Include="Model\MoveCalculator.cs" />
+    <Compile Include="Converter\RowNumberConverter.cs" />
+    <Compile Include="Converter\PossibleMovesConverter.cs" />
+    <Compile Include="ViewModel\GameHistoryVM.cs" />
+    <Compile Include="ViewModel\GameStateVM.cs" />
+    <Compile Include="Model\GameBoard.cs" />
+    <Compile Include="Model\Cell.cs" />
+    <Compile Include="Model\CommandLineArgumentsHandler.cs" />
+    <Compile Include="View\BeatenPieces.xaml.cs">
+      <DependentUpon>BeatenPieces.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GameBoardBackground.xaml.cs">
+      <DependentUpon>GameBoardBackground.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GameBoardButtons.xaml.cs">
+      <DependentUpon>GameBoardButtons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GameBoardColumnBorder.xaml.cs">
+      <DependentUpon>GameBoardColumnBorder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GameBoardPieceImages.xaml.cs">
+      <DependentUpon>GameBoardPieceImages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GameBoardPossibleMoves.xaml.cs">
+      <DependentUpon>GameBoardPossibleMoves.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GameBoardRowBorder.xaml.cs">
+      <DependentUpon>GameBoardRowBorder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GameMenu.xaml.cs">
+      <DependentUpon>GameMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\ChessPieces\Bishop.cs" />
+    <Compile Include="Model\ChessPieces\ChessPiece.cs" />
+    <Compile Include="Model\ChessPieces\King.cs" />
+    <Compile Include="Model\ChessPieces\Knight.cs" />
+    <Compile Include="Model\ChessPieces\Pawn.cs" />
+    <Compile Include="Model\ChessPieces\Queen.cs" />
+    <Compile Include="Model\ChessPieces\Rook.cs" />
+    <Compile Include="Model\Player.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Icons\chess.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\ChessPieces\L_Black.png" />
+    <Resource Include="View\Images\ChessPieces\L_White.png" />
+    <Resource Include="View\Images\ChessPieces\K_Black.png" />
+    <Resource Include="View\Images\ChessPieces\K_White.png" />
+    <Resource Include="View\Images\ChessPieces\S_Black.png" />
+    <Resource Include="View\Images\ChessPieces\S_White.png" />
+    <Resource Include="View\Images\ChessPieces\B_Black.png" />
+    <Resource Include="View\Images\ChessPieces\B_White.png" />
+    <Resource Include="View\Images\ChessPieces\D_Black.png" />
+    <Resource Include="View\Images\ChessPieces\D_White.png" />
+    <Resource Include="View\Images\ChessPieces\T_Black.png" />
+    <Resource Include="View\Images\ChessPieces\T_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="chessico.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

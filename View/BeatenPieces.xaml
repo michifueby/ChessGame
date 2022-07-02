@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="Chess.View.BeatenPieces"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Chess.View"
+             xmlns:converter="clr-namespace:Chess.Converter"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converter:BeatenPiecesImageConverter x:Key="BeatenPiecesImageConverter"></converter:BeatenPiecesImageConverter>
+    </UserControl.Resources>
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="15">
+        <!-- Border beaten pieces Begin -->
+        <Border BorderThickness="4" BorderBrush="Black" Padding="2 2 5 0" Margin="5 12 7 10">
+            <Label Content="Pieces taken by Black" HorizontalAlignment="Center" FontSize="15" FontWeight="Bold"></Label>
+        </Border>
+        <!-- Border beaten pieces End -->
+
+        <!-- Grid beaten pieces Begin -->
+        <Grid Width="200" Height="200" Margin="5 10 5 20">
+            <ItemsControl BorderBrush="Black" BorderThickness="4" ItemsSource="{Binding Path = BeatenWhitePieces, Converter = {StaticResource BeatenPiecesImageConverter}, ConverterParameter = FirstPlayer}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <!-- Responsive Grid Begin -->
+                        <UniformGrid></UniformGrid>
+                        <!-- Responsive Grid End -->
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Label BorderBrush="Black" BorderThickness="2">
+                            <Image Source="{Binding}"></Image>
+                        </Label>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+        <!-- Grid beaten pieces End -->
+
+        <!-- Border beaten pieces Begin -->
+        <Border BorderThickness="4" BorderBrush="Black" Padding="2 2 5 0" Margin="5 125 7 10">
+            <Label Content="Pieces taken by White" HorizontalAlignment="Center" FontSize="15" FontWeight="Bold"></Label>
+        </Border>
+
+        <Grid Width="200" Height="200" Margin="5 10 5 25">
+            <ItemsControl BorderBrush="Black" BorderThickness="4" ItemsSource="{Binding Path = BeatenBlackPieces, Converter = {StaticResource BeatenPiecesImageConverter}, ConverterParameter = SecondPlayer}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid></UniformGrid>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Label BorderBrush="Black" BorderThickness="2"> 
+                            <Image Source="{Binding}"></Image>
+                        </Label>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+        <!-- Border beaten pieces End -->
+
+    </StackPanel>
+</UserControl>

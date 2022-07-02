@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Chess.App">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chess.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Chess.Model.ChessPieces.Bishop">
+    <Position X="31.5" Y="5.75" Width="6.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ChessPieces\Bishop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chess.Model.ChessPieces.ChessPiece">
+    <Position X="23" Y="0.5" Width="6" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAA=</HashCode>
+      <FileName>Model\ChessPieces\ChessPiece.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Chess.Model.ChessPieces.King">
+    <Position X="14.5" Y="3.25" Width="6.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ChessPieces\King.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chess.Model.ChessPieces.Knight">
+    <Position X="22.5" Y="5.75" Width="6.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ChessPieces\Knight.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chess.Model.ChessPieces.Pawn">
+    <Position X="31.5" Y="3.25" Width="6.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ChessPieces\Pawn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chess.Model.ChessPieces.Queen">
+    <Position X="22.5" Y="3.25" Width="6.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ChessPieces\Queen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chess.Model.ChessPieces.Rook">
+    <Position X="14.5" Y="5.75" Width="6.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ChessPieces\Rook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chess.Properties.Resources">
+    <Position X="0.5" Y="2.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chess.Properties.Settings">
+    <Position X="0.5" Y="5.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chess.Model.CommandLineArgumentsHandler">
+    <Position X="4.5" Y="0.5" Width="8.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAQAAAAAAIAAAAAAAAAgBACAgAAAIAAAAAA=</HashCode>
+      <FileName>Model\CommandLineArgumentsHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chess.Model.Cell">
+    <Position X="19.5" Y="9" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAgAABAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Model\Cell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chess.Converter.GameBoardWidthConverter">
+    <Position X="0.5" Y="7.5" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\GameBoardWidthConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Chess.Converter.GameBoardHeightConverter">
+    <Position X="0.5" Y="9.25" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\GameBoardHeightConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Chess.Model.GameBoard">
+    <Position X="14.5" Y="9" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAJEAAQCQAAEQgBAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\GameBoard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chess.ViewModel.GameStateVM">
+    <Position X="14.5" Y="13.5" Width="7.25" />
+    <TypeIdentifier>
+      <HashCode>CAxAQCsEAgwgBKCELAMkCEAiwQAAQCDAgAIBgAAIQCA=</HashCode>
+      <FileName>ViewModel\GameStateVM.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Chess.ViewModel.GameHistoryVM">
+    <Position X="22.5" Y="13.5" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\GameHistoryVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chess.Model.Coordinates">
+    <Position X="31" Y="9" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEAAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Coordinates.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chess.Model.MoveCalculator">
+    <Position X="29.5" Y="13.25" Width="9" />
+    <TypeIdentifier>
+      <HashCode>AAMAAAAAAAAAAAQsQAAQAAAhIEAAkIACBAIEAAACAAQ=</HashCode>
+      <FileName>Model\MoveCalculator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chess.Converter.CellSizeConverter">
+    <Position X="0.5" Y="11" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\CellSizeConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Chess.Converter.ColumnNumberAsCharConverter">
+    <Position X="0.5" Y="12.75" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\ColumnNumberAsCharConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Chess.Converter.RowNumberConverter">
+    <Position X="0.5" Y="14.5" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\RowNumberConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Chess.Converter.GamePieceImageConverter">
+    <Position X="0.5" Y="16.25" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\GamePieceImageConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Chess.Converter.GameBoardConverter">
+    <Position X="0.5" Y="18" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\GameBoardConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Chess.Converter.BeatenPiecesImageConverter">
+    <Position X="0.5" Y="19.75" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\BeatenPiecesImageConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Chess.Model.GameBoardCreator">
+    <Position X="25.5" Y="9" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\GameBoardCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chess.Converter.PossibleMovesConverter">
+    <Position X="0.5" Y="21.5" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\PossibleMovesConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Chess.GameWinnerCalculator">
+    <Position X="29.5" Y="21.25" Width="9" />
+    <TypeIdentifier>
+      <HashCode>AZAAEAAAAAABAIAIAQAMAAAAAAoAQAAAAwAAgAEAAAA=</HashCode>
+      <FileName>Model\GameWinnerCalculator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chess.Converter.GameBoardStatusMessageConverter">
+    <Position X="0.5" Y="23.25" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converter\GameBoardStatusMessageConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Chess.Model.IMoveable">
+    <Position X="29.5" Y="19.5" Width="9" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\IMoveable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Chess.Model.Player">
+    <Position X="8.25" Y="4.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Model\Player.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
