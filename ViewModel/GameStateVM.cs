@@ -407,20 +407,20 @@ namespace Chess.ViewModel
                         if (this.SelectCell != null)
                         {
                             this.MovePiece(obj);
-                            this.FireOnPropertyChanged("PossibleMoves");
+                            this.FireOnPropertyChanged(nameof(this.PossibleMoves));
 
-                            this.FireOnPropertyChanged("IsBlackPlayerWon");
-                            this.FireOnPropertyChanged("IsWhitePlayerWon");
+                            this.FireOnPropertyChanged(nameof(this.IsBlackPlayerWon));
+                            this.FireOnPropertyChanged(nameof(this.IsWhitePlayerWon));
                             return;
                         }
 
                         this.SelectPiece(obj);
-                        this.FireOnPropertyChanged("PossibleMoves");
+                        this.FireOnPropertyChanged(nameof(this.PossibleMoves));
                     }
                     else if (this.IsBlackPlayerWon || IsWhitePlayerWon)
                     {
                         this.isAWinner = true;
-                        this.FireOnPropertyChanged("IsAGameWinner");
+                        this.FireOnPropertyChanged(nameof(this.IsAGameWinner));
                     }
                 });
             }
@@ -721,16 +721,16 @@ namespace Chess.ViewModel
                     this.isBlackKingInCheck = this.gameWinnerCalculator.CalculateIsKingInCheck(Player.FirstPlayer, this.gameBoard);
                     this.isWhiteKingInCheck = this.gameWinnerCalculator.CalculateIsKingInCheck(Player.SecondPlayer, this.gameBoard);
 
-                    this.FireOnPropertyChanged("IsWhiteKingInCheck");
-                    this.FireOnPropertyChanged("IsBlackKingInCheck");
+                    this.FireOnPropertyChanged(nameof(this.IsWhiteKingInCheck));
+                    this.FireOnPropertyChanged(nameof(this.IsBlackKingInCheck));
 
                     this.possibleMoves.Clear();
 
-                    this.FireOnPropertyChanged("BeatenBlackPieces");
-                    this.FireOnPropertyChanged("BeatenWhitePieces");
+                    this.FireOnPropertyChanged(nameof(this.BeatenBlackPieces));
+                    this.FireOnPropertyChanged(nameof(this.BeatenWhitePieces));
 
-                    this.FireOnPropertyChanged("GameBoard");
-                    this.FireOnPropertyChanged("PossibleMoves");
+                    this.FireOnPropertyChanged(nameof(this.GameBoard));
+                    this.FireOnPropertyChanged(nameof(this.PossibleMoves));
                     this.SelectCell = null;
                     break;
                 }
@@ -800,11 +800,11 @@ namespace Chess.ViewModel
             {
                 case Player.FirstPlayer:
                     this.BeatenBlackPieces.Add(beatenChessPiece);
-                    this.FireOnPropertyChanged("BeatenBlackPieces");
+                    this.FireOnPropertyChanged(nameof(this.BeatenBlackPieces));
                     break;
                 case Player.SecondPlayer:
                     this.BeatenWhitePieces.Add(beatenChessPiece);
-                    this.FireOnPropertyChanged("BeatenWhitePieces");
+                    this.FireOnPropertyChanged(nameof(this.BeatenWhitePieces));
                     break;
             }
         }
