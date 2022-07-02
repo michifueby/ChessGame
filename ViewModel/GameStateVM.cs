@@ -149,6 +149,11 @@ namespace Chess.ViewModel
 
             set
             {
+                if (value == null)
+                {
+                    throw new ArgumentNullException(nameof(this.GameBoard), "The specified value must not be null!");
+                }
+
                 this.gameBoard = value;
             }
         }
@@ -283,12 +288,7 @@ namespace Chess.ViewModel
         {
             get
             {
-                if ((this.gameHistory.IndexOf(this.gameBoard) % 2 % 2 == 0) && this.IsWhiteKingInCheck)
-                {
-                    return true;
-                }
-
-                return false;
+                return (this.gameHistory.IndexOf(this.gameBoard) % 2 == 0) && this.IsWhiteKingInCheck;
             }
             
             set
@@ -317,12 +317,7 @@ namespace Chess.ViewModel
         {
             get
             {
-                if ((this.gameHistory.IndexOf(this.gameBoard) % 2 != 0) && this.IsBlackKingInCheck)
-                {
-                    return true;
-                }
-
-                return false;
+                return (this.gameHistory.IndexOf(this.gameBoard) % 2 != 0) && this.IsBlackKingInCheck;
             }
 
             set
@@ -351,10 +346,7 @@ namespace Chess.ViewModel
         {
             get
             {
-                return new Command(obj =>
-                {
-                    this.StartGame();
-                });
+                return new Command(obj => this.StartGame());
             }
         }
 
@@ -366,10 +358,7 @@ namespace Chess.ViewModel
         {
             get
             {
-                return new Command(obj =>
-                {
-                    Environment.Exit(0);
-                });
+                return new Command(obj => Environment.Exit(0));
             }
         }
 
