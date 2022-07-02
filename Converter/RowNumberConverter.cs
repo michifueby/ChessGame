@@ -36,11 +36,11 @@ namespace Chess.Converter
             {
                 if (i < 10)
                 {
-                    rowNumberList.Add("0" + i.ToString());
+                    rowNumberList.Add($"0{i}");
                 }
                 else
                 {
-                    rowNumberList.Add(i.ToString());
+                    rowNumberList.Add($"{i}");
                 }
             }
 

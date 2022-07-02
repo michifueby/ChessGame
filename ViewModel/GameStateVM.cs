@@ -470,7 +470,7 @@ namespace Chess.ViewModel
             string oldPiecePosition = this.ConvertIntToChar(oldCoordinates.YCoordinate) + (rowCount - oldCoordinates.XCoordinate).ToString();
             string newPiecePosition = this.ConvertIntToChar(newCoordinates.YCoordinate) + (rowCount - newCoordinates.XCoordinate).ToString();
 
-            return oldPiecePosition + " -> " + newPiecePosition;
+            return $"{oldPiecePosition} -> {newPiecePosition}";
         }
 
         /// <summary>
@@ -787,12 +787,7 @@ namespace Chess.ViewModel
         /// <returns>The value indicating the piece state.</returns>
         private bool CheckIfChessPieceBeaten(Cell[,] gameBoard, Coordinates coordinates)
         {
-            if (!gameBoard[coordinates.XCoordinate, coordinates.YCoordinate].IsCellOccupied)
-            {
-                return false;
-            }
-
-            return true;
+            return gameBoard[coordinates.XCoordinate, coordinates.YCoordinate].IsCellOccupied;
         }
 
         /// <summary>
@@ -819,15 +814,14 @@ namespace Chess.ViewModel
         /// </summary>
         private void UpdateGameState()
         {
-            this.FireOnPropertyChanged("BlackBeatenPieces");
-            this.FireOnPropertyChanged("WhiteBeatenPieces");
-            this.FireOnPropertyChanged("GameHistory");
-            this.FireOnPropertyChanged("GameBoard");
-            this.FireOnPropertyChanged("IsWhitePlayerWon");
-            this.FireOnPropertyChanged("IsBlackPlayerWon");
-            this.FireOnPropertyChanged("IsWhiteKingInCheck");
-            this.FireOnPropertyChanged("IsBlackKingInCheck");
-            this.FireOnPropertyChanged("IsAGameWinner");
+            this.FireOnPropertyChanged(nameof(this.BeatenBlackPieces));
+            this.FireOnPropertyChanged(nameof(this.BeatenWhitePieces));
+            this.FireOnPropertyChanged(nameof(this.GameHistory));
+            this.FireOnPropertyChanged(nameof(this.GameBoard));
+            this.FireOnPropertyChanged(nameof(this.IsWhitePlayerWon));
+            this.FireOnPropertyChanged(nameof(this.IsBlackPlayerWon));
+            this.FireOnPropertyChanged(nameof(this.IsWhiteKingInCheck));
+            this.FireOnPropertyChanged(nameof(this.IsAGameWinner));
         }
     }
 }

@@ -127,6 +127,11 @@ namespace Chess.Model
 
             set
             {
+                if (value == null)
+                {
+                    throw new ArgumentNullException(nameof(this.Name), "The specified value must not be null!");
+                }
+
                 this.name = value;
             }
         }
@@ -144,6 +149,11 @@ namespace Chess.Model
 
             set
             {
+                if (value == null)
+                {
+                    throw new ArgumentNullException(nameof(this.BeatenBlackPieces), "The specified value must not be null!");
+                }
+
                 this.beatenBlackPieces = value;
             }
         }
@@ -161,6 +171,11 @@ namespace Chess.Model
 
             set
             {
+                if (value == null)
+                {
+                    throw new ArgumentNullException(nameof(this.BeatenWhitePieces), "The specified value must not be null!");
+                }
+
                 this.beatenWhitePieces = value;
             }
         }
