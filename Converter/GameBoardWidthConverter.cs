@@ -34,20 +34,17 @@ namespace Chess.Converter
 
             if (gameBoard.Row < 11 && gameBoard.Column < 11)
             {
-                columnSize = 80;
-                return gameBoard.Column * columnSize;
+                return gameBoard.Column * 80;
             }
 
             if (gameBoard.Row < 15 && gameBoard.Column < 15)
             {
-                columnSize = 60;
-                return gameBoard.Column * columnSize;
+                return gameBoard.Column * 60;
             }
 
             if (gameBoard.Row < 19 && gameBoard.Column < 19)
             {
-                columnSize = 40;
-                return gameBoard.Column * columnSize;
+                return gameBoard.Column * 40;
             }
 
             return gameBoard.Column * columnSize;

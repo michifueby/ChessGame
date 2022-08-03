@@ -12,7 +12,6 @@ namespace Chess.ViewModel
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
-    using System.Windows;
     using System.Windows.Input;
     using Chess.Command;
     using Chess.Model;
@@ -119,11 +118,13 @@ namespace Chess.ViewModel
             this.beatenWhitePieces = new ObservableCollection<ChessPiece>();
 
             this.gameHistory = new ObservableCollection<GameBoard>();
+
             this.possibleMoves = new ObservableCollection<Coordinates>();
 
             this.moveCalculator = new MoveCalculator();
 
             this.gameWinnerCalculator = new GameWinnerCalculator();
+
             this.isBlackKingInCheck = false;
             this.isWhiteKingInCheck = false;
             this.isAWinner = false;
@@ -290,7 +291,7 @@ namespace Chess.ViewModel
             {
                 return (this.gameHistory.IndexOf(this.gameBoard) % 2 == 0) && this.IsWhiteKingInCheck;
             }
-            
+
             set
             {
                 this.IsWhitePlayerWon = value;
@@ -406,7 +407,7 @@ namespace Chess.ViewModel
                     {
                         if (this.SelectCell != null)
                         {
-                            this.MovePiece(obj);
+                            this.MovePiece((string)obj);
                             this.FireOnPropertyChanged(nameof(this.PossibleMoves));
 
                             this.FireOnPropertyChanged(nameof(this.IsBlackPlayerWon));
@@ -414,7 +415,7 @@ namespace Chess.ViewModel
                             return;
                         }
 
-                        this.SelectPiece(obj);
+                        this.SelectPiece((string)obj);
                         this.FireOnPropertyChanged(nameof(this.PossibleMoves));
                     }
                     else if (this.IsBlackPlayerWon || IsWhitePlayerWon)
@@ -489,89 +490,12 @@ namespace Chess.ViewModel
         /// <returns>The letter of the number.</returns>
         private char ConvertIntToChar(int number)
         {
-            switch (number)
-            {
-                case 0:
-                    return 'A';
-                
-                case 1:
-                    return 'B';
-                
-                case 2:
-                    return 'C';
-                
-                case 3:
-                    return 'D';
-                
-                case 4:
-                    return 'E';
-                
-                case 5:
-                    return 'F';
-                
-                case 6:
-                    return 'G';
-                
-                case 7:
-                    return 'H';
-                
-                case 8:
-                    return 'I';
-                
-                case 9:
-                    return 'J';
-                
-                case 10:
-                    return 'K';
-                
-                case 11:
-                    return 'L';
-                
-                case 12:
-                    return 'M';
-                
-                case 13:
-                    return 'N';
-                
-                case 14:
-                    return 'O';
-                
-                case 15:
-                    return 'P';
-                
-                case 16:
-                    return 'Q';
-                
-                case 17:
-                    return 'R';
-                
-                case 18:
-                    return 'S';
-                
-                case 19:
-                    return 'T';
-                
-                case 20:
-                    return 'U';
-                
-                case 21:
-                    return 'V';
-                
-                case 22:
-                    return 'W';
-                
-                case 23:
-                    return 'X';
-                
-                case 24:
-                    return 'Y';
-                
-                case 25:
-                    return 'Z';
-                
-                default:
-                    return '\0';
-            }
+            string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            if (number < 0 || number >= letters.Length)
+                return '\0';
+
+            return letters[number];
         }
 
         /// <summary>
@@ -603,10 +527,10 @@ namespace Chess.ViewModel
         private void NotifyVMAboutGameState()
         {
             this.gameBoard = this.gameHistory[this.gameHistory.Count - 1];
-            
+
             this.row = this.gameBoard.Row;
             this.column = this.gameBoard.Column;
-            
+
             this.BeatenBlackPieces = new ObservableCollection<ChessPiece>(this.gameBoard.BeatenBlackPieces);
             this.BeatenWhitePieces = new ObservableCollection<ChessPiece>(this.gameBoard.BeatenWhitePieces);
 
@@ -618,10 +542,10 @@ namespace Chess.ViewModel
         /// </summary>
         /// <param name="piece">Specified the chess piece.</param>
         /// <returns>The coordinates from piece.</returns>
-        private int[] GetCoordinatesFromPiece(object piece)
+        private int[] GetCoordinatesFromPiece(string piece)
         {
             int[] coordinates = new int[2];
-            string[] pieceInfo = piece.ToString().Split(' ');
+            string[] pieceInfo = piece.Split(' ');
 
             coordinates[0] = int.Parse(pieceInfo[0]);
             coordinates[1] = int.Parse(pieceInfo[1]);
@@ -633,7 +557,7 @@ namespace Chess.ViewModel
         /// Select a chess piece.
         /// </summary>
         /// <param name="piece">Specified the chess piece.</param>
-        private void SelectPiece(object piece)
+        private void SelectPiece(string piece)
         {
             int[] selectedCell = this.GetCoordinatesFromPiece(piece);
 
@@ -686,7 +610,7 @@ namespace Chess.ViewModel
         /// Move the chess piece.
         /// </summary>
         /// <param name="piece">Specified the chess piece.</param>
-        private void MovePiece(object piece)
+        private void MovePiece(string piece)
         {
             int[] oldCoordinates = this.GetCoordinatesFromPiece(piece);
             Coordinates moveCoordinates = new Coordinates(oldCoordinates[0], oldCoordinates[1]);
