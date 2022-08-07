@@ -1,4 +1,12 @@
-﻿using System.Reflection;
+﻿//-----------------------------------------------------------------------
+// <copyright file="AssemblyInfo.cs" company="FH Wiener Neustadt">
+//     Copyright (c) FH Wiener Neustadt. All rights reserved.
+// </copyright>
+// <author>Michael Füby</author>
+// <summary>Chess</summary>
+//-----------------------------------------------------------------------
+
+using System.Reflection;
 using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;

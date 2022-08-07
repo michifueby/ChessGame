@@ -49,11 +49,11 @@ namespace Chess.Model
                         }
                         else if (j == 3)
                         {
-                            cells[i, j] = new Cell(true, new Queen(Player.FirstPlayer));
+                            cells[i, j] = new Cell(true, new King(Player.FirstPlayer));
                         }
                         else if (j == 4)
                         {
-                            cells[i, j] = new Cell(true, new King(Player.FirstPlayer));
+                            cells[i, j] = new Cell(true, new Queen(Player.FirstPlayer));
                         }
                         else
                         {
@@ -87,11 +87,11 @@ namespace Chess.Model
                         }
                         else if (j == 3)
                         {
-                            cells[i, j] = new Cell(true, new Queen(Player.SecondPlayer));
+                            cells[i, j] = new Cell(true, new King(Player.SecondPlayer));
                         }
                         else if (j == 4)
                         {
-                            cells[i, j] = new Cell(true, new King(Player.SecondPlayer));
+                            cells[i, j] = new Cell(true, new Queen(Player.SecondPlayer));
                         }
                         else
                         {

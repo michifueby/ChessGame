@@ -493,7 +493,9 @@ namespace Chess.ViewModel
             string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
             if (number < 0 || number >= letters.Length)
+            {
                 return '\0';
+            }
 
             return letters[number];
         }

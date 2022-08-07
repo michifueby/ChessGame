@@ -93,6 +93,11 @@ namespace Chess.Model
 
             set
             {
+                if (value < 8 || value > 26)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(this.Row), "The specified value of the row must be greather than 7 and smaller than 27!");
+                }
+
                 this.row = value;
             }
         }
@@ -110,6 +115,11 @@ namespace Chess.Model
 
             set
             {
+                if (value < 8 || value > 26)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(this.Column), "The specified value of the column must be greather than 7 and smaller than 27!");
+                }
+
                 this.column = value;
             }
         }
