@@ -1,9 +1,9 @@
 # ♔ ChessGame
 
-## A simple Chess Game for windows 
+## Chess WPF .NET Framework 4.7.2 application that only supports the basic ruleset of chess
 
 - Set game size with commandline arguments: -size 12x12
-- You can store and load your game state
-- You can load a specified turn
+- Store and load your game state
+- Load a specified turn
 
 ![alt text](https://github.com/michifueby/ChessGame/blob/master/ChessGame.png?raw=true)
